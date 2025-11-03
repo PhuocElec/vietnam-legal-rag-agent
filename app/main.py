@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 
 from app.core.logging import setup_logging
 from app.core.settings import settings
-from app.api import chat
+from app.api import chat_messages
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -22,7 +22,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-app.include_router(chat.router)
+app.include_router(chat_messages.router)
 
 logger.info(f"FastAPI app '{settings.APP_NAME}' initialized and routes registered")
 
