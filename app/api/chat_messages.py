@@ -28,7 +28,7 @@ class ChatMessageBody(BaseModel):
 # --------- Router ---------
 
 @router.post("/chat-messages", dependencies=[Depends(validate_api_key)])
-async def post_chat_messages(body: ChatMessageBody):
+async def post_chat_message(body: ChatMessageBody):
     try:
         return {
             "session_id": body.session_id,
